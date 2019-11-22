@@ -3,6 +3,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
+import { movies } from './movies'
+
 export const ConfigureStore = () => {
     // This is for the redux Devtools to work correctly. Remove before building
     const compose = enhancer => {return enhancer},
@@ -10,7 +12,7 @@ export const ConfigureStore = () => {
 
     const store = createStore(
         combineReducers({
-            // Empty for now
+            movies
         }),
         composeEnhancers(applyMiddleware(thunk, logger)) // Remove composeEnhancer before building, as well as redux thunk middleware
     )
