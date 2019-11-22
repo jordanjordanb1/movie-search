@@ -1,0 +1,8 @@
+.github-icon {
+    color: black;
+    font-size: 1.5em;
+}
+
+.github-icon:hover {
+    color: white;
+}
