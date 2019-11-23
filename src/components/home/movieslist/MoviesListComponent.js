@@ -4,7 +4,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import NoMovies from './nomovies/NoMoviesComponent'
+import Button from 'react-bootstrap/Button'
 import './MoviesListComponent.css'
+import ImageNotFound from './not-found.png'
 
 const mapStateToProps = state => ({
     moviesList: state.movies.moviesList,
@@ -21,10 +23,13 @@ class MoviesList extends PureComponent {
             return movies.map((movie, index) => {
                 return (
                     <Card className="m-3 movie-card" key={index}>
-                        <Card.Img variant="top" alt={movie.Title} src={movie.Poster} />
+                        <Card.Header className="d-flex justify-content-center align-items-center">
+                            <Card.Img variant="top" alt={movie.Title} src={movie.Poster !== 'N/A' ? movie.Poster : ImageNotFound} />
+                        </Card.Header>
                         <Card.Body>
                             <Card.Title>{movie.Title}</Card.Title>
                             <Card.Text>Year: {movie.Year}</Card.Text>
+                            <a target="_blank" rel="noopener noreferrer" href={`https://www.imdb.com/title/${movie.imdbID}`}><Button>View on IMDB</Button></a>
                         </Card.Body>
                     </Card>
                 ) 
