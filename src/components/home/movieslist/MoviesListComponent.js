@@ -7,7 +7,8 @@ import NoMovies from './nomovies/NoMoviesComponent'
 import './MoviesListComponent.css'
 
 const mapStateToProps = state => ({
-    moviesList: state.movies.moviesList
+    moviesList: state.movies.moviesList,
+    apiLookup: state.movies.apiLookup,
 })
 
 class MoviesList extends PureComponent {
@@ -28,6 +29,12 @@ class MoviesList extends PureComponent {
                     </Card>
                 ) 
             })
+        } else {
+            return (
+                <div className="no-movie-found">
+                    <h1>No movies were found!</h1>
+                </div>
+            )
         }
     }
 
@@ -35,7 +42,7 @@ class MoviesList extends PureComponent {
         return (
             <Row>
                 <Col xs="12" style={{flexWrap: "wrap"}} className={ this.props.moviesList ? 'd-flex justify-content-center' : '' }>
-                    { !this.props.moviesList ? <NoMovies /> : this.renderMovies() }
+                    { !this.props.apiLookup ? <NoMovies /> : this.renderMovies() }
                 </Col>
             </Row>
         )

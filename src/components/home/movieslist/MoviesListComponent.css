@@ -1,3 +1,8 @@
 .movie-card {
     width: 330px;
 }
+
+.no-movie-found {
+    margin-top: 30px;
+    text-align: center;
+}
