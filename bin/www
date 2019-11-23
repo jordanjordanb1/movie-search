@@ -11,8 +11,14 @@ const app = require('../app'),
 /**
  * Get port from environment and store in Express.
  */
+let port;
 
-const port = normalizePort('3001' || process.env.PORT);
+if (process.env.ENV === 'PROD') {
+    port = normalizePort(process.env.PORT);
+} else {
+    port = normalizePort('3001' || process.env.PORT);
+}
+
 app.set('port', port);
 
 /**
@@ -34,13 +40,13 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  const port = parseInt(val, 10);
+  const _port = parseInt(val, 10);
 
-  if (isNaN(port))
+  if (isNaN(_port))
     return val; // named pipe
 
-  if (port >= 0)
-    return port; // port number
+  if (_port >= 0)
+    return _port; // port number
 
   return false;
 }
