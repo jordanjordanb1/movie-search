@@ -7,8 +7,6 @@ const indexRouter = require('./routes/index')
 
 const app = express();
 
-app.use(bodyParser.urlencoded({limit: '12mb', extended: true }))
-
 app.use(cors({ origin: true }))
 
 // Enables logger in development mode
