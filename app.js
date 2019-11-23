@@ -7,7 +7,10 @@ const indexRouter = require('./routes/index')
 
 const app = express();
 
-app.use(cors({ origin: true }))
+if (process.env.ENV === 'prod')
+    app.use(cors({ origin: 'https://simplemoviesearchapp.herokuapp.com/' }));
+else
+    app.use(cors({ origin: 'http://localhost:3000' }));
 
 // Enables logger in development mode
 if (process.env.ENV !== 'PROD')
