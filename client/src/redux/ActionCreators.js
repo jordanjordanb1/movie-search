@@ -6,7 +6,7 @@ import { config } from '../config'
 export const fetchMovies = value => dispatch => {
     // Checks to see if a value was set. Not really needed but...
     if (value) {
-        axios.get(`${config.url}/movies?value=${value}`) // Does a get request to the backend with the required params
+        axios.get(`${config.url}/movies/${value}`) // Does a get request to the backend with the required params
              .then(res => {
                  if (res.status === 200) { // Checks to see if a response came back
                     if (res.data.err !== 'NOMOVIES') { // Checks to see if any movies were found
