@@ -3,7 +3,8 @@ const express = require('express'),
       logger = require('morgan'),
       cors = require('cors')
 
-const indexRouter = require('./routes/index')
+const indexRouter = require('./routes/index'),
+      moviesRouter = require('./routes/movies')
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ limit: '12mb', extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* Routes  */
-app.use('/', indexRouter);
+app.use('/', indexRouter)
+app.use('/movies', moviesRouter)
 
 module.exports = app;
