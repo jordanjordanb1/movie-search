@@ -23,7 +23,7 @@ class MoviesList extends PureComponent {
             return movies.map((movie, index) => {
                 return (
                     <Card className="m-3 movie-card" key={index}>
-                        <Card.Header className="d-flex justify-content-center align-items-center">
+                        <Card.Header className="d-flex justify-content-center">
                             <Card.Img variant="top" alt={movie.Title} src={movie.Poster !== 'N/A' ? movie.Poster : ImageNotFound} />
                         </Card.Header>
                         <Card.Body>
