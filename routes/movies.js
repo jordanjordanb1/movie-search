@@ -5,7 +5,7 @@ const express = require('express'),
 movieRouter.route('/')
     .get((req, res, next) => {
         const api_key = process.env.OMDBAPI_KEY,
-              value = req.body.value,
+              value = req.query.value,
               apiUrl = `https://www.omdbapi.com/?apikey=${api_key}&s=${value}`;
 
         axios.get(apiUrl) // Makes a GET request to OMDB API
