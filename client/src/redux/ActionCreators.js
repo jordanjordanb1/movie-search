@@ -9,13 +9,18 @@ export const fetchMovies = value => dispatch => {
         axios.get(`${config.url}/movies?value=${value}`) // Does a get request to the backend with the required params
              .then(res => {
                  if (res.status === 200) { // Checks to see if a response came back
-                    if (res.data) { // Checks to see if any movies were found
+                    if (res.data.err !== 'NOMOVIES') { // Checks to see if any movies were found
                         dispatch({ // If found, insert movies into redux store
                             type: ActionTypes.INSERT_MOVIES,
                             payload: res.data // Found movies
                         })
                         dispatch({ // Also tick the api lookup amount up 1
                             type: ActionTypes.API_LOOKUP
+                        })
+                    } else {
+                        dispatch({
+                            type: ActionTypes.INSERT_MOVIES,
+                            payload: '' // No movies found
                         })
                     }
                  } else {
