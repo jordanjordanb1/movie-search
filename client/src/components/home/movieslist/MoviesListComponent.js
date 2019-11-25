@@ -11,13 +11,12 @@ import ImageNotFound from './not-found.png'
 const mapStateToProps = state => ({
     moviesList: state.movies.moviesList,
     apiLookup: state.movies.apiLookup,
+    isLoading: state.movies.isLoading,
 })
 
 class MoviesList extends PureComponent {
     renderMovies() {
         const movies = this.props.moviesList
-
-        // Title,Year,Poster,imdbID
 
         if (movies) {
             return movies.map((movie, index) => {
@@ -47,7 +46,15 @@ class MoviesList extends PureComponent {
         return (
             <Row>
                 <Col xs="12" style={{flexWrap: "wrap"}} className={ this.props.moviesList ? 'd-flex justify-content-center' : '' }>
-                    { !this.props.apiLookup ? <NoMovies /> : this.renderMovies() }
+                    {(() => {
+                        if (!this.props.apiLookup) {
+                            return (<NoMovies />)
+                        } else if (this.props.isLoading) {
+                            return (<div class="lds-ring"><div></div><div></div><div></div><div></div></div>)
+                        }  else {
+                            return this.renderMovies()
+                        }
+                    })()}
                 </Col>
             </Row>
         )

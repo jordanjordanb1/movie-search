@@ -5,6 +5,10 @@ import { config } from '../config'
 // Fetches movies from omdb api
 export const fetchMovies = value => dispatch => {
     // Checks to see if a value was set. Not really needed but...
+    dispatch({
+        type: ActionTypes.MOVIES_LOADING // Sets that the movies are being fetched
+    })
+
     if (value) {
         axios.get(`${config.url}/movies/${value}`) // Does a get request to the backend with the required params
              .then(res => {
