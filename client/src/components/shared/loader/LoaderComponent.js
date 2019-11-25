@@ -6,7 +6,7 @@ export default function LoaderComponent() {
     return (
         <div className="loader-container">
             <div className="loader-box">
-                <div class="loader">Loading...</div>
+                <div className="loader">Loading...</div>
             </div>
         </div>
     )
