@@ -25,7 +25,7 @@ class MoviesList extends PureComponent {
                 return (
                     <Card className="m-3 movie-card" key={index}>
                         <Card.Header className="d-flex justify-content-center">
-                            <Card.Img variant="top" alt={movie.Title} src={movie.Poster !== 'N/A' ? movie.Poster : ImageNotFound} />
+                            <Card.Img variant="top" className="img-fluid" alt={movie.Title} src={movie.Poster !== 'N/A' ? movie.Poster : ImageNotFound} />
                         </Card.Header>
                         <Card.Body>
                             <Card.Title>{movie.Title}</Card.Title>
