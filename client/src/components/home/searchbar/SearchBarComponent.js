@@ -7,6 +7,8 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import { connect } from 'react-redux'
 import { fetchMovies } from '../../../redux/ActionCreators'
 
+import './SearchBarComponent.css'
+
 const mapDispatchToProps = dispatch => ({
     fetchMovies: value => dispatch(fetchMovies(value))
 })
@@ -40,7 +42,7 @@ class SearchBar extends PureComponent {
                             <InputGroup className="mb-3">
                                 <Form.Control type="search" placeholder="Search for a movie here..." value={this.state.searchValue} onChange={e => this.setState({ searchValue: e.target.value })} />
                                 <InputGroup.Prepend>
-                                    <Button>Search</Button>
+                                    <Button className="search-btn">Search</Button>
                                 </InputGroup.Prepend>
                             </InputGroup>
                         </Form.Row>

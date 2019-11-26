@@ -1,0 +1,8 @@
+.search-btn {
+    border-top-right-radius: .25rem !important;
+    border-bottom-right-radius: .25rem !important;
+}
+
+.search-btn:focus {
+    box-shadow: none;
+}
