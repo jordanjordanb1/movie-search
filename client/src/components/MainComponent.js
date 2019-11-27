@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import './MainComponent.css'
 import Home from './home/HomeComponent'
-import Header from './shared/header/HeaderComponent'
+import Nav from './shared/nav/NavComponent'
 import Loader from './shared/loader/LoaderComponent'
 import { connect } from 'react-redux'
 
@@ -14,7 +14,7 @@ class Main extends PureComponent {
         return (
             <>
                 { this.props.isMoviesLoading ? <Loader /> : null }
-                <Header />
+                <Nav />
                 <Home />
             </>
         )
