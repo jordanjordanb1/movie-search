@@ -16,12 +16,10 @@ const mapStateToProps = state => ({
 
 class MoviesList extends PureComponent {
     renderMovies() {
-        const movies = this.props.moviesList
+        const { moviesList } = this.props
 
-        // Title,Year,Poster,imdbID
-
-        if (movies) {
-            return movies.map((movie, index) => {
+        if (moviesList) {
+            return moviesList.map((movie, index) => {
                 return (
                     <Card className="m-3 movie-card" key={index}>
                         <Card.Header className="d-flex justify-content-center">
