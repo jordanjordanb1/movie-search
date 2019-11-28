@@ -6,4 +6,4 @@ I've used the following technologies in this portfolio
 - NodeJS
 - Express.js
 
-Powered by the OMDB API: [https://omdbapi.com](More info)
+Powered by the OMDB API: [More info](https://omdbapi.com)
