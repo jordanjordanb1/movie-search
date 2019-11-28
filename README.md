@@ -1,6 +1,6 @@
 ## A simple movie search app 
 
-I've used the following technologies in this portfolio
+I've used the following technologies in this project:
 - React
 - Redux
 - NodeJS
