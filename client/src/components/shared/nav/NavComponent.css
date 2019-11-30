@@ -4,5 +4,26 @@
 }
 
 .github-icon:hover {
+    color: grey;
+}
+
+.dark-mode-button {
+    color: black;
+    cursor: pointer;
+}
+
+.dark-mode-button:hover {
+    border-bottom: 1px solid black;
+}
+
+.dark-mode .github-icon:hover {
     color: white;
+}
+
+.dark-mode .dark-mode-button {
+    color: white;
+}
+
+.dark-mode .dark-mode-button:hover {
+    border-bottom: 1px solid white;
 }

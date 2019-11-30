@@ -6,3 +6,19 @@
 .search-btn:focus {
     box-shadow: none;
 }
+
+.search-dark input {
+    background: black !important;
+    border: none;
+    border-radius: 0px !important;
+    border-bottom: 2px solid white !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+
+.search-dark button {
+    background: white !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    color: black !important;
+}

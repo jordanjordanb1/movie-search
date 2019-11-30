@@ -8,6 +8,10 @@ div.loader-container {
     justify-content: center;
 }
 
+div.dark-mode {
+    background: rgba(205, 205, 205, 0.7) !important;
+}
+
 div.loader-box {
     width: auto; height: auto;
 }
@@ -21,6 +25,13 @@ div.loader-box {
     width: 1em;
     height: 4em;
 }
+
+.dark-mode .loader,
+.dark-mode .loader:before,
+.dark-mode .loader:after {
+    background: black !important;
+}
+
 .loader {
     color: #ffffff;
     text-indent: -9999em;
@@ -30,6 +41,11 @@ div.loader-box {
     transform: translateZ(0);
     animation-delay: -0.16s;
 }
+
+.dark-mode .loader {
+    color: black !important;
+}
+
 .loader:before,
 .loader:after {
     position: absolute;
@@ -43,6 +59,10 @@ div.loader-box {
 .loader:after {
     left: 1.5em;
 }
+
+
+
+
 @-webkit-keyframes load1 {
     0%,
     80%,

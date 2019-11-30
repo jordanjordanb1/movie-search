@@ -2,9 +2,9 @@ import React from 'react'
 
 import './LoaderComponent.css'
 
-const Loader = () => (
-    <div className="loader-container">
-        <div className="loader-box">
+const Loader = ({ darkMode }) => (
+    <div className={ darkMode ? "loader-container dark-mode" : "loader-container" }>
+        <div className="loader-box" >
             <div className="loader">Loading...</div>
         </div>
     </div>

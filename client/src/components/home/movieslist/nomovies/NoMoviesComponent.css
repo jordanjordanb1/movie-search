@@ -2,3 +2,7 @@
     margin-top: 30px;
     text-align: center;
 }
+
+.no-movie-dark {
+    color: white !important;
+}

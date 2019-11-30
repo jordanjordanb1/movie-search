@@ -9,6 +9,10 @@ import { fetchMovies } from '../../../redux/ActionCreators'
 
 import './SearchBarComponent.css'
 
+const mapStateToProps = state => ({
+    darkMode: state.dark.darkMode
+})
+
 const mapDispatchToProps = dispatch => ({
     fetchMovies: value => dispatch(fetchMovies(value))
 })
@@ -20,7 +24,6 @@ class SearchBar extends PureComponent {
         this.state = {
             searchValue: ''
         }
-
 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -34,8 +37,10 @@ class SearchBar extends PureComponent {
     }
 
     render() {
+        const { darkMode } = this.props
+
         return (
-            <Row className="mt-4">
+            <Row className={ darkMode ? 'mt-4 search-dark' : 'mt-4' }>
                 <Col xs="12" md={{ span: 10, offset: 1 }} lg={{ span: 8, offset: 2 }}>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Row>
@@ -53,4 +58,4 @@ class SearchBar extends PureComponent {
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

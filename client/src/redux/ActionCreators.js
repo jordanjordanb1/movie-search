@@ -26,6 +26,9 @@ export const fetchMovies = value => dispatch => {
                             type: ActionTypes.INSERT_MOVIES,
                             payload: '' // No movies found
                         })
+                        dispatch({ // Also tick the api lookup amount up 1
+                            type: ActionTypes.API_LOOKUP
+                        })
                     }
                  } else {
                      console.error('An unknown error occured') // If the server responded with any other than 200, then maybe server is down?
@@ -33,4 +36,20 @@ export const fetchMovies = value => dispatch => {
              })
              .catch(err => console.error(err))
     }
+}
+
+// Toggles dark mode
+export const toggleDarkMode = () => dispatch => {
+    const body = window.bodyTag,
+          bodyClasses = body.className
+
+    if (bodyClasses === 'body-dark-mode') { // Checks if dark-mode class is already in the body tag
+        body.className = ''
+    } else {
+        body.className = 'body-dark-mode'
+    }
+
+    dispatch({
+       type: ActionTypes.TOGGLE_DARK_MODE 
+    })
 }

@@ -1,3 +1,4 @@
 export const INSERT_MOVIES = 'INSERT_MOVIES'
 export const API_LOOKUP = 'API_LOOKUP'
 export const MOVIES_LOADING = 'MOVIES_LOADING'
+export const TOGGLE_DARK_MODE = 'TOGGLE_DARK_MODE'

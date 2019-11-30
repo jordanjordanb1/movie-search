@@ -12,11 +12,12 @@ import ImageNotFound from './not-found.png'
 const mapStateToProps = state => ({
     moviesList: state.movies.moviesList,
     apiLookup: state.movies.apiLookup,
+    darkMode: state.dark.darkMode
 })
 
 class MoviesList extends PureComponent {
     renderMovies() {
-        const { moviesList } = this.props
+        const { moviesList, darkMode } = this.props
 
         if (moviesList) {
             return moviesList.map((movie, index) => {
@@ -35,7 +36,7 @@ class MoviesList extends PureComponent {
             })
         } else {
             return (
-                <div className="no-movie-found">
+                <div className={ darkMode ? 'no-movie-found no-movie-dark' : 'no-movie-found' }>
                     <h1>No movies were found!</h1>
                 </div>
             )
@@ -43,10 +44,12 @@ class MoviesList extends PureComponent {
     }
 
     render() {
+        const { darkMode, moviesList, apiLookup } = this.props
+
         return (
             <Row>
-                <Col xs="12" style={{flexWrap: "wrap"}} className={ this.props.moviesList ? 'd-flex justify-content-center' : '' }>
-                    { !this.props.apiLookup ? <NoMovies /> : this.renderMovies() }
+                <Col xs="12" className={ moviesList ? 'd-flex justify-content-center flex-wrap' : 'flex-wrap' }>
+                    { !apiLookup ? <NoMovies darkMode={darkMode} /> : this.renderMovies() }
                 </Col>
             </Row>
         )
